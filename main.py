@@ -9,7 +9,7 @@ from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 
 from dataset import UNetDataset
-from model import UNet
+from model import UNet, DiceLoss
 
 
 # set environment parser
@@ -69,10 +69,10 @@ if __name__ == "__main__":
         device = "cuda:0"
 
 
-    model = UNet(2)
+    model = UNet(1)
     model.to(device)
 
-    criterion = nn.BCEWithLogitsLoss()
+    criterion = DiceLoss()
     optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=0.001)
     writer = SummaryWriter()
 

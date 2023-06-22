@@ -33,6 +33,7 @@ class UNet(nn.Module):
         self.dconv_up1 = double_conv(128 + 64, 64)
 
         self.conv_last = nn.Conv2d(64, n_class, 1)
+        self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
         conv1 = self.dconv_down1(x)
@@ -59,6 +60,7 @@ class UNet(nn.Module):
 
         x = self.dconv_up1(x)
 
-        out = self.conv_last(x)
+        x = self.conv_last(x)
+        out = self.sigmoid(x)
 
         return out

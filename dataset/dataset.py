@@ -13,7 +13,6 @@ class UNetDataset(Dataset):
         self.len = l
         self.transform = transforms.Compose([
             transforms.ToTensor(),
-            # transforms.Normalize((0.5,), (0.5,))
         ])
         self.train = train
         self.data_path = path
@@ -29,10 +28,7 @@ class UNetDataset(Dataset):
         label = Image.open(path_to_label)
         label = self.transform(label)
         label = torch.where(label > 0.5, 1, 0)
-        label = label.squeeze(0)
-        label_onehot = F.one_hot(label)
-        label_onehot = label_onehot.permute(2, 0, 1).contiguous().float()
-        return img, label_onehot
+        return img, label
 
 
 if __name__ == "__main__":
