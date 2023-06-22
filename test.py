@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     model = UNet(2)
     param_path = os.path.join('params', 'Ubest.pth')
-    sd = torch.load(param_path)
+    sd = torch.load(param_path, map_location=device)
     model.load_state_dict(sd)
     model.to(device)
 
