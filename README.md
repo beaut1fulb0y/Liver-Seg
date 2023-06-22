@@ -45,3 +45,6 @@ tensorboard --logdir >path-to-logdir
 
 通过运行`test.py`生成分割二值图像，自动放在`runs/`中，`calc.py`可以计算所有的要求测试参数，并且绘制ROC曲线并保存在项目根目录下
 
+作者：宸哥
+
+github链接：https://github.com/beaut1fulb0y/Liver-Seg.git
