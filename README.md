@@ -34,7 +34,7 @@ python main.py -d cuda
 `runs/`中保存了分割测试结果，以及tensorboard日志的压缩包文件，可以解压缩以后，使用命令行：
 
 ```bash
-tensorboard --logdir >path-to-logdir
+tensorboard --logdir=path-to-logdir
 ```
 
 然后给定的网页端口查看训练日志。
